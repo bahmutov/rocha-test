@@ -1,16 +1,22 @@
 {
   "name": "rocha-test",
   "version": "1.0.0",
-  "description": "",
+  "description": "E2E tests for Rocha",
   "main": "index.js",
   "scripts": {
-    "test": "DEBUG=rocha:e2e rocha specs/only-tests-spec.js"
+    "test": "ava --verbose",
+    "demo": "DEBUG=rocha:e2e rocha specs/only-tests-spec.js",
+    "pretest": "npm run lint",
+    "lint": "standard --verbose --fix *.js specs/*.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
+  "private": true,
   "license": "ISC",
   "devDependencies": {
     "ava": "^0.19.1",
-    "execa": "^0.6.3"
+    "execa": "^0.6.3",
+    "ramda": "^0.24.1",
+    "standard": "^10.0.2"
   }
 }

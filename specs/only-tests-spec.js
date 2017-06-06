@@ -1,3 +1,5 @@
+/* global it */
+
 const empty = () => {}
 
 // this spec file only has individual tests
