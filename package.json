@@ -7,7 +7,18 @@
     "test": "ava --verbose --serial",
     "demo": "DEBUG=rocha:e2e rocha specs/only-tests-spec.js",
     "pretest": "npm run lint",
-    "lint": "standard --verbose --fix *.js specs/*.js"
+    "prelint": "prettier-standard *.js specs/*.js",
+    "lint": "standard --verbose *.js specs/*.js | snazzy",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "linters": {
+      "(.|specs)/*.js": [
+        "prettier-standard",
+        "standard --verbose",
+        "git add"
+      ]
+    }
   },
   "keywords": [],
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
@@ -16,8 +27,12 @@
   "devDependencies": {
     "ava": "^0.19.1",
     "execa": "^0.6.3",
+    "husky": "^0.13.4",
+    "lint-staged": "^3.6.0",
+    "prettier-standard": "^5.0.0",
     "ramda": "^0.24.1",
     "rocha": "^2.4.1",
+    "snazzy": "^7.0.0",
     "standard": "^10.0.2"
   }
 }

@@ -1,6 +1,8 @@
 const execa = require('execa')
-const {tap, prop} = require('ramda')
+const { tap, prop } = require('ramda')
 const log = require('debug')('test')
+
+let unused = 42
 
 function logOutput (output) {
   log('test output')
@@ -12,9 +14,7 @@ function runRochaSpec (filename) {
   const env = {
     DEBUG: 'cypress:e2e,' + process.env.DEBUG
   }
-  return execa.shell(cmd, {env})
-    .then(prop('stdout'))
-    .then(tap(logOutput))
+  return execa.shell(cmd, { env }).then(prop('stdout')).then(tap(logOutput))
 }
 
 module.exports = {
