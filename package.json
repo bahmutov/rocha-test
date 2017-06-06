@@ -13,7 +13,7 @@
   },
   "lint-staged": {
     "linters": {
-      "(.|specs)/*.js": [
+      "*.js": [
         "prettier-standard",
         "standard --verbose",
         "git add"

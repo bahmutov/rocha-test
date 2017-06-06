@@ -2,8 +2,6 @@ const execa = require('execa')
 const { tap, prop } = require('ramda')
 const log = require('debug')('test')
 
-let unused = 42
-
 function logOutput (output) {
   log('test output')
   log(output)
