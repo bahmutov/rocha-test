@@ -39,3 +39,9 @@ test('tests in nested describe', async t => {
   const testNames = cleanup(output)
   t.notDeepEqual(testNames, ten, 'should have shuffled tests')
 })
+
+test('tests in multiple describes', async t => {
+  const output = await runRochaSpec('./specs/multiple-describes-spec.js')
+  const testNames = cleanup(output)
+  t.notDeepEqual(testNames, ten, 'should have shuffled tests')
+})
