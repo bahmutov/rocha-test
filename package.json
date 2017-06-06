@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "rocha only-tests-spec.js"
+    "test": "DEBUG=rocha:e2e rocha specs/only-tests-spec.js"
   },
   "keywords": [],
   "author": "",
