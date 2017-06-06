@@ -10,7 +10,7 @@ function logOutput (output) {
 function runRochaSpec (filename) {
   const cmd = `rocha ${filename}`
   const env = {
-    DEBUG: 'cypress:e2e'
+    DEBUG: 'cypress:e2e,' + process.env.DEBUG
   }
   return execa.shell(cmd, {env})
     .then(prop('stdout'))

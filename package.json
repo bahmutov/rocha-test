@@ -4,7 +4,7 @@
   "description": "E2E tests for Rocha",
   "main": "index.js",
   "scripts": {
-    "test": "ava --verbose",
+    "test": "ava --verbose --serial",
     "demo": "DEBUG=rocha:e2e rocha specs/only-tests-spec.js",
     "pretest": "npm run lint",
     "lint": "standard --verbose --fix *.js specs/*.js"
