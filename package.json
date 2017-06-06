@@ -9,7 +9,8 @@
     "pretest": "npm run lint",
     "prelint": "prettier-standard *.js specs/*.js",
     "lint": "standard --verbose *.js specs/*.js | snazzy",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "prepush": "npm prune && npm test"
   },
   "lint-staged": {
     "linters": {
