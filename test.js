@@ -23,26 +23,16 @@ function logNames (testNames) {
 
 const cleanup = compose(tap(logNames), leaveTestNames)
 
-test('just tests', async t => {
-  const output = await runRochaSpec('./specs/only-tests-spec.js')
+const execute = specFilename => async t => {
+  const output = await runRochaSpec(specFilename)
   const testNames = cleanup(output)
-  t.notDeepEqual(testNames, ten, 'should have shuffled tests')
-})
+  t.notDeepEqual(testNames, ten)
+}
 
-test('tests in single describe', async t => {
-  const output = await runRochaSpec('./specs/one-describe-spec.js')
-  const testNames = cleanup(output)
-  t.notDeepEqual(testNames, ten, 'should have shuffled tests')
-})
+test('just tests', execute('./specs/only-tests-spec'))
 
-test('tests in nested describe', async t => {
-  const output = await runRochaSpec('./specs/nested-describe-spec.js')
-  const testNames = cleanup(output)
-  t.notDeepEqual(testNames, ten, 'should have shuffled tests')
-})
+test('tests in single describe', execute('./specs/one-describe-spec'))
 
-test('tests in multiple describes', async t => {
-  const output = await runRochaSpec('./specs/multiple-describes-spec.js')
-  const testNames = cleanup(output)
-  t.notDeepEqual(testNames, ten, 'should have shuffled tests')
-})
+test('tests in nested describe', execute('./specs/nested-describe-spec'))
+
+test('tests in multiple describes', execute('./specs/multiple-describes-spec'))
